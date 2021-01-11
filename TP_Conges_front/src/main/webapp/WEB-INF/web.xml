@@ -10,57 +10,7 @@
       <include-prelude>/taglib.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
-  <listener>
+   <listener>
     <listener-class>listener.initApp</listener-class>
   </listener>
-  <servlet>
-    <description></description>
-    <display-name>Disconnect</display-name>
-    <servlet-name>Disconnect</servlet-name>
-    <servlet-class>servlet.Disconnect</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Disconnect</servlet-name>
-    <url-pattern>/Disconnect</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>FilterEmp</display-name>
-    <servlet-name>FilterEmp</servlet-name>
-    <servlet-class>servlet.FilterEmp</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>FilterEmp</servlet-name>
-    <url-pattern>/FilterEmp</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Manager</display-name>
-    <servlet-name>Manager</servlet-name>
-    <servlet-class>servlet.Manager</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Manager</servlet-name>
-    <url-pattern>/Manager</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Salarie</display-name>
-    <servlet-name>Salarie</servlet-name>
-    <servlet-class>servlet.Salarie</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Salarie</servlet-name>
-    <url-pattern>/Salarie</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Home</display-name>
-    <servlet-name>Home</servlet-name>
-    <servlet-class>servlet.Home</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Home</servlet-name>
-    <url-pattern>/Home</url-pattern>
-  </servlet-mapping>
 </web-app>
