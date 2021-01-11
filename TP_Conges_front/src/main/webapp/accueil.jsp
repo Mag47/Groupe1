@@ -19,9 +19,9 @@
 		</div>
 		<form id="connectForm" action="home" method="POST">
 
-			<label><b>Mail</b></label> <input type="text"
+			<label><b>Mail</b></label> <input type="text" value="j.abid@ajc.fr"
 				placeholder="Entrer votre mail" name="mail" required> <label><b>Mot
-					de passe</b></label> <input type="password"
+					de passe</b></label> <input type="password" value="ajc"
 				placeholder="Entrer le mot de passe" name="password" required>
 
 			<input type="submit" id='submit' value='CONNECTION'>
