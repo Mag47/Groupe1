@@ -4,9 +4,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import dao.IDAOCompte;
+import dao.IDAOConges;
 import dao.IDAOManager;
 import dao.IDAOSalarie;
 import dao.jpa.DAOCompte;
+import dao.jpa.DAOConges;
 import dao.jpa.DAOManager;
 import dao.jpa.DAOSalarie;
 
@@ -20,7 +22,7 @@ public class Context {
 	private IDAOCompte daoCompte=new DAOCompte();
 	private IDAOSalarie daoSalarie=new DAOSalarie();
 	private IDAOManager daoManager=new DAOManager();
-
+	private IDAOConges daoConges=new DAOConges();
 	
 	private Context() {}
 	
@@ -63,6 +65,14 @@ public class Context {
 
 	public void setDaoManager(IDAOManager daoManager) {
 		this.daoManager = daoManager;
+	}
+
+	public IDAOConges getDaoConges() {
+		return daoConges;
+	}
+
+	public void setDaoConges(IDAOConges daoConges) {
+		this.daoConges = daoConges;
 	}
 
 	

@@ -17,7 +17,8 @@ public class Conges {
 	public Conges()
 	{
 		
-	};
+	}
+	
 	public Conges(String nom, LocalDate dateDebut, LocalDate dateFin, int nbJours, String motif, TypeConges typeConges,
 			Service service, LocalDateTime dateCrea) {
 		super();
