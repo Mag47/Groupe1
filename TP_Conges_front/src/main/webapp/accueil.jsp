@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <!-- importer le fichier de style -->
-<title>Accueil Inventaire</title>
+<title>Accueil Conges</title>
 </head>
 <body>
 
@@ -19,12 +19,12 @@
 		</div>
 		<form id="connectForm" action="home" method="POST">
 
-			<label><b>Login</b></label> <input type="text"
-				placeholder="Entrer votre Login" name="login" required> <label><b>Mot
+			<label><b>Mail</b></label> <input type="text"
+				placeholder="Entrer votre mail" name="mail" required> <label><b>Mot
 					de passe</b></label> <input type="password"
 				placeholder="Entrer le mot de passe" name="password" required>
 
-			<input type="submit" id='submit' value='LOGIN'>
+			<input type="submit" id='submit' value='CONNECTION'>
 			<div class="error">${error}</div>
 		</form>
 	</div>

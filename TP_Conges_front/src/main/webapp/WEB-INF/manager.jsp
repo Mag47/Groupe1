@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Gestion Admin</title>
+<title>Gestion Manager</title>
 
 
 </head>
@@ -17,12 +17,12 @@
 		<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 			<li class="nav-item"><a class="nav-link active"
 				id="pills-emp-tab" data-toggle="pill" href="#pills-emp" role="tab"
-				aria-controls="pills-emp" aria-selected="true">Gestion employés</a>
+				aria-controls="pills-emp" aria-selected="true">Validation des demandes</a>
 			</li>
 			<li class="nav-item"><a class="nav-link " id="pills-ordi-tab"
 				data-toggle="pill" href="#pills-ordi" role="tab"
-				aria-controls="pills-ordi" aria-selected="false">Gestion
-					ordinateurs</a></li>
+				aria-controls="pills-ordi" aria-selected="false">Liste des conges
+					</a></li>
 		</ul>
 		<div class="tab-content" id="pills-tabContent">
 			<div class="tab-pane fade show active" id="pills-emp" role="tabpanel"
@@ -30,22 +30,24 @@
 				
 				<input type="text" placeholder="Filtrer par login" id="filterName">
 				
-				<h1>Liste des employés</h1>
+				<h1>Liste des demandes</h1>
 				<input id="btnAddEmp" type="button" class="btn btn-success"
-					value="Ajouter">
+					value="Actualiser">
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Id</th>
-							<th>Login</th>
-							<th>Password</th>
-							<th>Mail</th>
-							<th>PC</th>
-							<th>Actions</th>
+							<th>Nom du demandeur</th>
+							<th>Type de demande</th>
+							<th>Date de debut</th>
+							<th>Date de fin</th>
+							<th>Nombre de jours</th>
+							<th>Motif</th>
+							<th>Service</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody id="contentEmp">
-						<c:forEach items="${employes}" var="emp">
+						<c:forEach items="${salaries}" var="sal">
 
 							<tr>
 								<td>${emp.id}</td>

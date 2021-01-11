@@ -10,6 +10,7 @@ import config.Context;
 import dao.IDAOConges;
 import model.Conges;
 import model.Manager;
+import model.Salarie;
 
 public class DAOConges implements IDAOConges {
 
@@ -58,6 +59,22 @@ public class DAOConges implements IDAOConges {
 			conges=query.getResultList();
 		}
 		catch(Exception e){System.out.println("Error findAll Conges");}
+		em.close();
+		return conges;
+	}
+
+	@Override
+	public List<Conges> findAllFilter(String service) {
+		
+		List<Conges> conges = new ArrayList();
+		EntityManager em=Context.getInstance().getEmf().createEntityManager();
+		try 
+		{
+			Query query= em.createQuery("from Conges c where c.service like :filter",Conges.class);
+			query.setParameter("filter", "%"+service+"%");
+			conges=query.getResultList();
+		}
+		catch(Exception e){System.out.println("Error findAlFilter Conges");}
 		em.close();
 		return conges;
 	}

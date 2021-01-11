@@ -62,13 +62,13 @@ public class DAOSalarie implements IDAOSalarie{
 	}
 	
 	@Override
-	public List<Salarie> findAllFilter(String name) {
+	public List<Salarie> findAllFilter(String service) {
 		List<Salarie> salaries = new ArrayList();
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		try 
 		{
-			Query query= em.createQuery("from Salarie s where s.login like :filter",Salarie.class);
-			query.setParameter("filter", "%"+name+"%");
+			Query query= em.createQuery("from Salarie s where s.service like :filter",Salarie.class);
+			query.setParameter("filter", "%"+service+"%");
 			salaries=query.getResultList();
 		}
 		catch(Exception e){System.out.println("Error findAlFilter Salarie");}
