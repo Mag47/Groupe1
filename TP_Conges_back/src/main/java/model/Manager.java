@@ -4,15 +4,25 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("admin")
+@DiscriminatorValue("manager")
 
 public class Manager extends Compte {
-
-	public Manager(String login, String password, String mail) {
-		super(login,password,mail);
-	}
+	
+	
 
 	public Manager() {
-
+		super();
+		// TODO Auto-generated constructor stub
 	}
+
+	public Manager(Integer id, String password, String mail) {
+		super(id, password, mail);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Manager(String password, String mail) {
+		super(password, mail);
+		// TODO Auto-generated constructor stub
+	}
+	
 }

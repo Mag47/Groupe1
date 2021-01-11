@@ -1,36 +1,43 @@
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
 
 @Entity
-@DiscriminatorValue("employe")
+@DiscriminatorValue("salarie")
 public class Salarie extends Compte{
 	
-	@OneToOne
-	private PC pc;
+	@Enumerated(EnumType.STRING)
+	@Column(name="service",nullable=false)
+	private Service service;
 
 	public Salarie() {
 	}
-	
-	public Salarie(String login, String password, String mail,PC pc) {
-		super(login,password,mail);
-		this.pc=pc;
-	}
-	
-	public Salarie(Integer id,String login, String password, String mail,PC pc) {
-		super(id,login,password,mail);
-		this.pc=pc;
+
+	public Salarie(Integer id, String password, String mail, Service service) {
+		super(id, password, mail);
+		this.service=service;
 	}
 
-	public PC getPc() {
-		return pc;
+	public Salarie(String password, String mail, Service service) {
+		super(password, mail);
+		this.service=service;
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setPc(PC pc) {
-		this.pc = pc;
+	public Service getService() {
+		return service;
 	}
+
+	public void setService(Service service) {
+		this.service = service;
+	}
+
+	
 	
 	
 }

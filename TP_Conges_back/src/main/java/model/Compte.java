@@ -17,7 +17,7 @@ public class Compte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
-	protected String login,password,mail;
+	protected String password,mail;
 	@Version
 	protected int version;
 	
@@ -26,15 +26,14 @@ public class Compte {
 
 
 
-	public Compte(String login, String password, String mail) {
-		this.login = login;
+	public Compte(String password, String mail) {
+		
 		this.password = password;
 		this.mail = mail;
 	}
 
-	public Compte(Integer id,String login, String password, String mail) {
-		this.id=id;
-		this.login = login;
+	public Compte(Integer id,String password, String mail) {
+		this.id=id;		
 		this.password = password;
 		this.mail = mail;
 	}
@@ -48,18 +47,6 @@ public class Compte {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-
-
-	public String getLogin() {
-		return login;
-	}
-
-
-
-	public void setLogin(String login) {
-		this.login = login;
 	}
 
 

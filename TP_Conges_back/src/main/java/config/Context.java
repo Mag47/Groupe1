@@ -45,16 +45,24 @@ public class Context {
 		return daoCompte;
 	}
 
-	public IDAOSalarie getDaoEmploye() {
-		return daoEmploye;
+	public void setDaoCompte(IDAOCompte daoCompte) {
+		this.daoCompte = daoCompte;
 	}
 
-	public IDAOPC getDaoPC() {
-		return daoPC;
+	public IDAOSalarie getDaoSalarie() {
+		return daoSalarie;
 	}
 
-	public IDAOManager getDaoAdmin() {
-		return daoAdmin;
+	public void setDaoSalarie(IDAOSalarie daoSalarie) {
+		this.daoSalarie = daoSalarie;
+	}
+
+	public IDAOManager getDaoManager() {
+		return daoManager;
+	}
+
+	public void setDaoManager(IDAOManager daoManager) {
+		this.daoManager = daoManager;
 	}
 
 	

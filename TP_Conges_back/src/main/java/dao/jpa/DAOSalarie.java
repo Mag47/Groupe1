@@ -7,11 +7,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import config.Context;
-import dao.IDAOEmploye;
-import model.Salarie;
+import dao.IDAOSalarie;
 import model.Salarie;
 
-public class DAOSalarie implements IDAOEmploye{
+
+public class DAOSalarie implements IDAOSalarie{
 
 	@Override
 	public Salarie save(Salarie t) {
@@ -19,7 +19,7 @@ public class DAOSalarie implements IDAOEmploye{
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		try{t=em.merge(t);}
-		catch(Exception e) {System.out.println("Error save Employe");}
+		catch(Exception e) {System.out.println("Error save Salarie");}
 		em.getTransaction().commit();
 		em.close();
 		return t;
@@ -31,49 +31,49 @@ public class DAOSalarie implements IDAOEmploye{
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		try{em.remove(em.merge(t));}
-		catch(Exception e) {System.out.println("Error delete Employe");}
+		catch(Exception e) {System.out.println("Error delete Salarie");}
 		em.getTransaction().commit();
 		em.close();
 	}
 
 	@Override
 	public Salarie findById(Integer id) {
-		Salarie emp=null;
+		Salarie sal=null;
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		try{emp=em.find(Salarie.class,id);}
-		catch(Exception e) {System.out.println("Error find Employe");}
+		try{sal=em.find(Salarie.class,id);}
+		catch(Exception e) {System.out.println("Error find Salarie");}
 		
 		em.close();
-		return emp;
+		return sal;
 	}
 
 	@Override
 	public List<Salarie> findAll() {
-		List<Salarie> employes = new ArrayList();
+		List<Salarie> salaries = new ArrayList();
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		try 
 		{
-			Query query= em.createQuery("from Employe",Salarie.class);
-			employes=query.getResultList();
+			Query query= em.createQuery("from Salarie",Salarie.class);
+			salaries=query.getResultList();
 		}
-		catch(Exception e){System.out.println("Error findAll Employe");}
+		catch(Exception e){System.out.println("Error findAll Salarie");}
 		em.close();
-		return employes;
+		return salaries;
 	}
 	
 	@Override
 	public List<Salarie> findAllFilter(String name) {
-		List<Salarie> employes = new ArrayList();
+		List<Salarie> salaries = new ArrayList();
 		EntityManager em=Context.getInstance().getEmf().createEntityManager();
 		try 
 		{
-			Query query= em.createQuery("from Employe e where e.login like :filter",Salarie.class);
+			Query query= em.createQuery("from Salarie s where s.login like :filter",Salarie.class);
 			query.setParameter("filter", "%"+name+"%");
-			employes=query.getResultList();
+			salaries=query.getResultList();
 		}
-		catch(Exception e){System.out.println("Error findAlFilter Employe");}
+		catch(Exception e){System.out.println("Error findAlFilter Salarie");}
 		em.close();
-		return employes;
+		return salaries;
 	}
 
 }
