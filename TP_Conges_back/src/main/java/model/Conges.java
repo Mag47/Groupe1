@@ -2,17 +2,41 @@ package model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
+import javax.annotation.processing.Generated;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Version;
+
+@Entity
 public class Conges {
 	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected Integer id;
+	
+	@Column(name="Nom du Salarie")
 	String nom;
+	
 	LocalDate dateDebut;
 	LocalDate dateFin;
 	int nbJours;
 	String motif;
 	private TypeConges typeConges;
 	private Service service;
-	private LocalDateTime dateCrea;
+	
+	private LocalDateTime dateCrea=LocalDateTime.now(ZoneId.systemDefault());
+	
+	@Version
+	protected int version;
 	
 	public Conges()
 	{
@@ -20,7 +44,7 @@ public class Conges {
 	}
 	
 	public Conges(String nom, LocalDate dateDebut, LocalDate dateFin, int nbJours, String motif, TypeConges typeConges,
-			Service service, LocalDateTime dateCrea) {
+			Service service) {
 		super();
 		this.nom = nom;
 		this.dateDebut = dateDebut;
@@ -29,7 +53,7 @@ public class Conges {
 		this.motif = motif;
 		this.typeConges = typeConges;
 		this.service = service;
-		this.dateCrea = dateCrea;
+		//this.dateCrea = dateCrea;
 	}
 	public String getNom() {
 		return nom;

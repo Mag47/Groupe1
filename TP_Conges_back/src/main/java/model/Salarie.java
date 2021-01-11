@@ -1,6 +1,6 @@
 package model;
 
-import javax.persistence.Column;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 public class Salarie extends Compte{
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name="service",nullable=false)
+	//@Column(name="service",nullable=false)
 	private Service service;
 
 	public Salarie() {

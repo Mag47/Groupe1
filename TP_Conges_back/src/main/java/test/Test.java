@@ -1,8 +1,6 @@
 package test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 import config.Context;
 import model.Conges;
@@ -27,7 +25,7 @@ public class Test {
 		Context.getInstance().getDaoSalarie().save(salarie1);
 		Context.getInstance().getDaoSalarie().save(salarie2);
 		
-		Conges cp= new Conges("Maurice",LocalDate.parse("2020-08-08"),LocalDate.parse("2020-08-16"),8,"RAS",TypeConges.congesPayes,Service.RH, LocalDateTime.now(ZoneId.systemDefault()));
+		Conges cp= new Conges("Maurice",LocalDate.parse("2020-08-08"),LocalDate.parse("2020-08-16"),8,"RAS",TypeConges.congesPayes,Service.RH);
 		
 		Context.getInstance().getDaoConges().save(cp);
 		
