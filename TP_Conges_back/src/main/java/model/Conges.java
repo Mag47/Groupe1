@@ -8,6 +8,8 @@ import javax.annotation.processing.Generated;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,14 +25,18 @@ public class Conges {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
 	
-	@Column(name="Nom du Salarie")
+	@Column(name="NomSalarie")
 	String nom;
 	
 	LocalDate dateDebut;
 	LocalDate dateFin;
 	int nbJours;
 	String motif;
+	
+	@Enumerated(EnumType.STRING)
 	private TypeConges typeConges;
+	
+	@Enumerated(EnumType.STRING)
 	private Service service;
 	
 	private LocalDateTime dateCrea=LocalDateTime.now(ZoneId.systemDefault());
