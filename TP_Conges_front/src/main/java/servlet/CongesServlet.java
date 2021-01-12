@@ -22,7 +22,7 @@ public class CongesServlet extends HttpServlet {
 		List<Conges> listeConges = Context.getInstance().getDaoConges().findAll();
 		
 		request.setAttribute("listeConges", listeConges);	
-		
+		System.out.println(listeConges);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/salarie.jsp").forward(request, response);
 	}
 

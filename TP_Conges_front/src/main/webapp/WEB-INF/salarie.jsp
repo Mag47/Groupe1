@@ -28,7 +28,7 @@
 					</thead>
 					<tbody>
 						
-						<c:forEach items="${Conges}" var="conge">
+						<c:forEach items="${listeConges}" var="conge">
 							<tr>
 								<td>${conge.dateDebut}</td>
 								<td>${conge.dateFin}</td>
@@ -36,8 +36,9 @@
 								<td>${conge.typeConges}</td>
 								<td>${conge.nom}</td>
 								<td>${conge.motif}</td>
-								<td>${conge.statut}</td>
-								<td><input  onclick="updateconge('${conge.dateDebut}', '${conge.dateFin}','${conge.nbJours}', '${conge.typeConges}', '${conge.nom}','${conge.motif}','${conge.statut}' )" type="button" class="btn btn-warning" value="Modifier">
+								<td>statut</td>
+							<%--  	<td>${conge.statut}</td>  --> <!-- updateconge('${conge.dateDebut}', '${conge.dateFin}','${conge.nbJours}', '${conge.typeConges}', '${conge.nom}','${conge.motif}' ) --%>
+								<td><input  onclick="updateSal()" type="button" class="btn btn-warning" value="Modifier">
 								<input type="submit" name="btnForm"	class="btn btn-danger"	value="supprimer"></td>
 								
 						</tr>
@@ -45,8 +46,8 @@
 					</tbody>
 				</table>
 
-				<div id="updateFormEmp">
-					<h3>Modifier l'employé</h3>
+			<%--	<div id="updateFormSal">
+					<h3>Modifier le congé</h3>
 					<form action="emp" method="post">
 
 						<input value="${emp.id}" type="hidden" name="id_emp">
@@ -64,7 +65,8 @@
 							<input name="btnForm" class="btn btn-warning"
 							type="submit" value="Modifier">
 					</form>
-				</div>
+				</div> --%>
+				
 				<div id="addFormConge">
 					<h3>Ajouter nouveau Congé</h3>
 					<form action="conge" method="post">
@@ -108,9 +110,9 @@
 
 //GESTION Employé
 
-function updateEmp()
+function updateSal()
 {
-	updateFormEmp.style.display="block";
+	updateFormSal.style.display="block";
 }
 
 </script>
