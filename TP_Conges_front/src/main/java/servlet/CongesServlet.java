@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import config.Context;
 import model.Conges;
 
+import model.TypeConges;
+import model.Salarie;
 
 @WebServlet("/conge")
 public class CongesServlet extends HttpServlet {
@@ -28,8 +31,30 @@ public class CongesServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		//recupere les parametres suivants : id_sal dateDebut dateFin id_type motif
+	//reucp employe id_sal puis created new conge avec param+employe
+		//save et rediriger la page pour afficher en DOge
+		
+		Integer id = Integer.parseInt(request.getParameter("id_sal"));
+		TypeConges typeconge = TypeConges.valueOf(request.getParameter("id_type"));
+		LocalDate dateDebut = LocalDate.parse(request.getParameter("dateDebut"));
+		LocalDate dateFin = LocalDate.parse(request.getParameter("dateFin"));
+		String motif = request.getParameter("motif");
 
+		 
+		Salarie s = Context.getInstance().getDaoSalarie().findById(id);
+		
+		Conges conges=new Conges (dateDebut,dateFin,motif,typeconge,s);
+	
+		Context.getInstance().getDaoConges().save(conges);
+				
+		
+		doGet(request,response);
+	}
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		Integer id = Integer.parseInt(request.getParameter("id_conges"));
+		Conges conges = Context.getInstance().getDaoConges().findById(id);
+		Context.getInstance().getDaoConges().delete(conges);
+	}
 }

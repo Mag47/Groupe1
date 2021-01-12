@@ -13,12 +13,13 @@
 	<a id="btnDisconnect" href="disconnect"><input type="button" class="btn btn-danger" value="Se deconnecter"></a>
 
 				<h1>Nouvelle demande de conges</h1>
+				<input id="btnAddEmp" type="button" class="btn btn-success"
+					value="Ajouter">
 				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>Date de debut</th>
 							<th>Date de fin</th>
-							<th>Nombre de jours</th>
 							<th>Type de conges</th>
 							<th>Nom du demandeur</th>
 							<th>Motif</th>
@@ -29,19 +30,34 @@
 					<tbody>
 						
 						<c:forEach items="${listeConges}" var="conge">
+							<c:if test="${conge.salarie.id==sessionScope.compte.id}"> 
 							<tr>
 								<td>${conge.dateDebut}</td>
 								<td>${conge.dateFin}</td>
-								<td>${conge.nbJours}</td>
 								<td>${conge.typeConges}</td>
-								<td>${conge.nom}</td>
+								<td>${conge.salarie.nom}</td>
 								<td>${conge.motif}</td>
 								<td>statut</td>
-							<%--  	<td>${conge.statut}</td>  --> <!-- updateconge('${conge.dateDebut}', '${conge.dateFin}','${conge.nbJours}', '${conge.typeConges}', '${conge.nom}','${conge.motif}' ) --%>
+							<%--  	<td>${conge.statut}</td>  --> <!-- updateconge('${conge.dateDebut}', '${conge.dateFin}', '${conge.typeConges}', '${conge.nom}','${conge.motif}' ) --%>
 								<td><input  onclick="updateSal()" type="button" class="btn btn-warning" value="Modifier">
-								<input type="submit" name="btnForm"	class="btn btn-danger"	value="supprimer"></td>
 								
+								<c:choose>
+										<c:when test="${statut==statut}">
+								<form class="formDelete" action="conge" method="post">
+									<input type="hidden" value="${conge.id}" name="id_conges">
+								<input type="submit" name="btnForm" class="btn btn-danger"
+													value="Supprimer">
+								</form>
+								</c:when>
+								<c:otherwise>
+									<input disabled name="btnForm" type="button"
+										class="btn btn-danger" value="Supprimer" />
+									</td>
+									</c:otherwise>
+								</c:choose>
+									
 						</tr>
+						</c:if> 
 						</c:forEach>
 					</tbody>
 				</table>
@@ -70,6 +86,8 @@
 				<div id="addFormConge">
 					<h3>Ajouter nouveau Congé</h3>
 					<form action="conge" method="post">
+					<input type="hidden" name="id_sal" value="${sessionScope.compte.id}">
+					
 						<label for="add_dateDebut">date de debut :</label> <input required
 							id="add_dateDebut" name="dateDebut" type="date"
 							placeholder="Saisir la date de debut"><br> 

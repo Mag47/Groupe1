@@ -1,10 +1,13 @@
 package model;
 
 
+import java.util.List;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -12,9 +15,11 @@ import javax.persistence.OneToOne;
 public class Salarie extends Compte{
 	
 	@Enumerated(EnumType.STRING)
-	//@Column(name="service",nullable=false)
 	private Service service;
 
+	@OneToMany (mappedBy = "salarie")
+	private List<Conges> conges;
+	
 	public Salarie() {
 	}
 
@@ -36,7 +41,13 @@ public class Salarie extends Compte{
 	public void setService(Service service) {
 		this.service = service;
 	}
+	public List<Conges> getConges() {
+		return conges;
+	}
 
+	public void setConges(List<Conges> conges) {
+		this.conges = conges;
+	}
 	
 	
 	

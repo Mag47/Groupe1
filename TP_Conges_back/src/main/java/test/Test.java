@@ -21,13 +21,19 @@ public class Test {
 		Salarie salarie1 = new Salarie("123r","re@gmail.com", Service.RH );
 		Salarie salarie2=new Salarie("123ra","Raul@gmail.com", Service.informatique);
 		
+		salarie1.setNom("Maurice");
+		salarie2.setNom("Manu");
+		
 		Context.getInstance().getDaoManager().save(manager);
-		Context.getInstance().getDaoSalarie().save(salarie1);
-		Context.getInstance().getDaoSalarie().save(salarie2);
+		salarie1=Context.getInstance().getDaoSalarie().save(salarie1);
+		salarie2=Context.getInstance().getDaoSalarie().save(salarie2);
+		//em.merge(sal1)
+		//Context.getInstance().getDaoSalarie().save(salarie2);
 		
-		Conges cp= new Conges("Maurice",LocalDate.parse("2020-08-08"),LocalDate.parse("2020-08-16"),8,"RAS",TypeConges.congesPayes,Service.RH);
-		
+		Conges cp= new Conges(LocalDate.parse("2020-08-08"),LocalDate.parse("2020-08-16"),"RAS",TypeConges.congesPayes,salarie1);
+		Conges cp2= new Conges(LocalDate.parse("2020-09-08"),LocalDate.parse("2020-09-16"),"RAS",TypeConges.absenceAutorisee,salarie2);
 		Context.getInstance().getDaoConges().save(cp);
+		Context.getInstance().getDaoConges().save(cp2);
 		
 	}
 	public static void main(String[] args) {
