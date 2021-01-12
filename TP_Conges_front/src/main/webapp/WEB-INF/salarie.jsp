@@ -13,7 +13,7 @@
 	<a id="btnDisconnect" href="disconnect"><input type="button" class="btn btn-danger" value="Se deconnecter"></a>
 
 				<h1>Nouvelle demande de conges</h1>
-				<input id="btnAddEmp" type="button" class="btn btn-success"
+				<input id="btnAddEmp" name="btnForm" type="button" class="btn btn-success"
 					value="Ajouter">
 				<table class="table table-striped">
 					<thead>

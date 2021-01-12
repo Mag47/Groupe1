@@ -19,9 +19,9 @@
 		</div>
 		<form id="connectForm" action="home" method="POST">
 
-			<label><b>Mail</b></label> <input type="text" value="re@gmail.com"
+			<label><b>Mail</b></label> <input type="text" 
 				placeholder="Entrer votre mail" name="mail" required> <label><b>Mot
-					de passe</b></label> <input type="password" value="123r"
+					de passe</b></label> <input type="password" 
 				placeholder="Entrer le mot de passe" name="password" required>
 
 			<input type="submit" id='submit' value='CONNECTION'>

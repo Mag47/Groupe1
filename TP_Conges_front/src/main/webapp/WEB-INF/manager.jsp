@@ -28,41 +28,42 @@
 			<div class="tab-pane fade show active" id="pills-emp" role="tabpanel"
 				aria-labelledby="pills-emp-tab">
 				
-				<input type="text" placeholder="Filtrer par login" id="filterName">
+			
 				
 				<h1>Liste des demandes</h1>
+				
 				<input id="btnAddEmp" type="button" class="btn btn-success"
 					value="Actualiser">
 				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>Nom du demandeur</th>
-							<th>Type de demande</th>
+							<th>Type de conges</th>
 							<th>Date de debut</th>
 							<th>Date de fin</th>
-							<th>Nombre de jours</th>
 							<th>Motif</th>
 							<th>Service</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody id="contentEmp">
-						<c:forEach items="${salaries}" var="sal">
+						<c:forEach items="${listeConges}" var="conge">
 
 							<tr>
-								<td>${emp.id}</td>
-								<td>${emp.login}</td>
-								<td>${emp.password}</td>
-								<td>${emp.mail}</td>
-								<td>${emp.pc.id}-${emp.pc.marque}</td>
+								<td>${conge.salarie.nom}</td>
+								<td>${conge.typeConges}</td>
+								<td>${conge.dateDebut}</td>
+								<td>${conge.dateFin}</td>
+								<td>${conge.motif}</td>
+								<td>${conge.salarie.service}</td>
 								<td><input
-									onclick="updateEmp(${emp.id},'${emp.login}','${emp.password}','${emp.mail}',${emp.pc.id},'${emp.pc.marque}')"
-									type="button" class="btn btn-warning" value="Modifier">
+									onclick="updateStatut()"
+									type="button" class="btn btn-success" value="Valider">
 
 									<form class="formDelete" action="emp" method="post">
-										<input type="hidden" value="${emp.id}" name="id_emp">
+										<input type="hidden" value="${conge.id}" name="id_emp">
 										<input type="submit" name="btnForm" class="btn btn-danger"
-											value="Supprimer">
+											value="Refuser">
 								</form>
 								</td>
 							</tr>
@@ -74,7 +75,7 @@
 
 
 
-				<div id="addFormEmp">
+				<%-- <div id="addFormEmp">
 					<h3>Ajouter nouveau Employé</h3>
 					<form action="emp" method="post">
 						<label for="add_login">Login :</label> <input required
@@ -93,7 +94,7 @@
 						</select><br> <input name="btnForm" class="btn btn-success"
 							type="submit" value="Ajouter">
 					</form>
-				</div>
+				</div>--%>
 
 				<div id="updateFormEmp">
 					<h3>Modifier l'employé</h3>
@@ -121,112 +122,35 @@
 
 			</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			<!-- Tableau gestion des machines (showAll + add + update + delete) -->
+			<!-- Tableau liste des conges (showAll + add + update + delete) -->
 			<div class="tab-pane fade" id="pills-ordi" role="tabpanel"
 				aria-labelledby="pills-ordi-tab">
 
-
-				<h1>Liste des machines</h1>
-				<input id="btnAddPC" type="button" class="btn btn-success"
-					value="Ajouter">
+	            <input type="text" placeholder="Filtrer" id="filterName">
+				<h1>Liste des congés</h1>
+				
 
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Numero</th>
-							<th>Marque</th>
-							<th>RAM</th>
-							<th>Employé</th>
-							<th>Actions</th>
+							<th>Nom du demandeur</th>
+							<th>Type de conges</th>
+							<th>Date de debut</th>
+							<th>Date de fin</th>
+							<th>Motif</th>
+							<th>Service</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${listePc}" var="pc">
+						<c:forEach items="${listeConges}" var="conge">
+
 							<tr>
-								<td>${pc.id}</td>
-								<td>${pc.marque}</td>
-								<td>${pc.RAM}</td>
-								<c:choose>
-									<c:when test="${pc.employe==null}">
-										<td>Disponible</td>
-									</c:when>
-									<c:otherwise>
-										<td>${pc.employe.login}</td>
-									</c:otherwise>
-								</c:choose>
-
-								<td><input
-									onclick="updatePC(${pc.id},'${pc.marque}',${pc.RAM})"
-									type="button" class="btn btn-warning" value="Modifier">
-
-									<c:choose>
-										<c:when test="${pc.employe==null}">
-											<form class="formDelete" action="pc" method="post">
-												<input type="hidden" value="${pc.id}" name="id_pc">
-												<input type="submit" name="btnForm" class="btn btn-danger"
-													value="Supprimer"></td>
-								</form>
-								</c:when>
-								<c:otherwise>
-									<input disabled name="btnForm" type="button"
-										class="btn btn-danger" value="Supprimer" />
-									</td>
-
-
-
-								</c:otherwise>
-								</c:choose>
-
-
+								<td>${conge.salarie.nom}</td>
+								<td>${conge.typeConges}</td>
+								<td>${conge.dateDebut}</td>
+								<td>${conge.dateFin}</td>
+								<td>${conge.motif}</td>
+								<td>${conge.salarie.service}</td>
 
 							</tr>
 						</c:forEach>

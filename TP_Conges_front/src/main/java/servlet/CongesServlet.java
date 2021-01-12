@@ -34,7 +34,9 @@ public class CongesServlet extends HttpServlet {
 		//recupere les parametres suivants : id_sal dateDebut dateFin id_type motif
 	//reucp employe id_sal puis created new conge avec param+employe
 		//save et rediriger la page pour afficher en DOge
-		
+		String tache = request.getParameter("btnForm");
+		if(tache.equals("Ajouter")) 
+		{
 		Integer id = Integer.parseInt(request.getParameter("id_sal"));
 		TypeConges typeconge = TypeConges.valueOf(request.getParameter("id_type"));
 		LocalDate dateDebut = LocalDate.parse(request.getParameter("dateDebut"));
@@ -50,6 +52,13 @@ public class CongesServlet extends HttpServlet {
 				
 		
 		doGet(request,response);
+		}
+		else if(tache.equals("Supprimer")) 
+		{
+			doDelete(request,response);
+
+		}
+		response.sendRedirect("sal");
 	}
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
