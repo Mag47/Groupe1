@@ -10,7 +10,17 @@
       <include-prelude>/taglib.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
-   <listener>
+  <listener>
     <listener-class>listener.initApp</listener-class>
   </listener>
+  <servlet>
+    <description></description>
+    <display-name>CongesServlet</display-name>
+    <servlet-name>CongesServlet</servlet-name>
+    <servlet-class>servlet.CongesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CongesServlet</servlet-name>
+    <url-pattern>/CongesServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -6,35 +6,42 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Gestion Admin</title>
+<title>Gestion Salarié</title>
 
 </head>
 <body>
 	<a id="btnDisconnect" href="disconnect"><input type="button" class="btn btn-danger" value="Se deconnecter"></a>
 
-				<h1>Mon profil</h1>
+				<h1>Nouvelle demande de conges</h1>
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Login</th>
-							<th>Password</th>
-							<th>Mail</th>
-							<th>PC</th>
+							<th>Date de debut</th>
+							<th>Date de fin</th>
+							<th>Nombre de jours</th>
+							<th>Type de conges</th>
+							<th>Nom du demandeur</th>
+							<th>Motif</th>
+							<th>Statut</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
 						
-
+						<c:forEach items="${Conges}" var="conge">
 							<tr>
-								<td>${emp.login}</td>
-								<td>${emp.password}</td>
-								<td>${emp.mail}</td>
-								<td>${emp.pc.id}-${emp.pc.marque}</td>
-								<td><input  onclick="updateEmp()" type="button" class="btn btn-warning" value="Modifier">
-								</td>
-							</tr>
-
+								<td>${conge.dateDebut}</td>
+								<td>${conge.dateFin}</td>
+								<td>${conge.nbJours}</td>
+								<td>${conge.typeConges}</td>
+								<td>${conge.nom}</td>
+								<td>${conge.motif}</td>
+								<td>${conge.statut}</td>
+								<td><input  onclick="updateconge('${conge.dateDebut}', '${conge.dateFin}','${conge.nbJours}', '${conge.typeConges}', '${conge.nom}','${conge.motif}','${conge.statut}' )" type="button" class="btn btn-warning" value="Modifier">
+								<input type="submit" name="btnForm"	class="btn btn-danger"	value="supprimer"></td>
+								
+						</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 
@@ -56,6 +63,37 @@
 							
 							<input name="btnForm" class="btn btn-warning"
 							type="submit" value="Modifier">
+					</form>
+				</div>
+				<div id="addFormConge">
+					<h3>Ajouter nouveau Congé</h3>
+					<form action="conge" method="post">
+						<label for="add_dateDebut">date de debut :</label> <input required
+							id="add_dateDebut" name="dateDebut" type="date"
+							placeholder="Saisir la date de debut"><br> 
+							
+						<label for="add_dateFin">date de fin :</label> <input required
+							id="add_dateFin" name="dateFin" type="date"
+							placeholder="Saisir la date de fin"><br> 
+							
+						
+						<label for="add_type">Type de conge : </label> 
+						<select id="add_type" name="id_type">
+							<option value="choose" selected="selected">Selectionner le type</option>
+							<c:forEach items="${typeConges}" var="conge">
+								<option value="${conge}">${conge.libelle}</option>
+							</c:forEach>
+						</select><br> 
+						
+						<label for="add_motif">Motif : 
+						<textarea style="vertical-align:middle" required id="add_motif" rows=5 cols=80 align="center"
+							name="motif" type="email" placeholder="Preciser le motif">
+						</textarea>
+						</label>
+						<br>
+						
+						<input name="btnForm" class="btn btn-success"
+							type="submit" value="Ajouter">
 					</form>
 				</div>
 
