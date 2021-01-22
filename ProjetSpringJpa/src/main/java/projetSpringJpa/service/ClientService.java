@@ -7,15 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-
+import projetSpringJpa.entity.Civilite;
 import projetSpringJpa.entity.Client;
 import projetSpringJpa.repository.RepositoryClient;
+import projetSpringJpa.repository.RepositoryCommande;
 
 @Service
 public class ClientService {
 	
 	@Autowired
 	private RepositoryClient clientRepo;
+	
+	@Autowired
+	private RepositoryCommande commandeRepo;
 	
 	public void creationClient(Client c) {
 		if (c.getPrenom() != null && !c.getPrenom().isEmpty() && c.getNom() != null && !c.getNom().isEmpty()) {
@@ -34,9 +38,11 @@ public class ClientService {
 
 	public void demo() {
 		
+
 		
-	}
-		/*System.out.println(clientRepo.findAll());
+		clientRepo.save(new Client(Civilite.Monsieur, "Manu"," tutu", "@yahoo.fr", null, null, null));
+	
+		//System.out.println(clientRepo.findAll());
 
 		Optional<Client> opt = clientRepo.findById(10000L);
 		if (opt.isPresent()) {
@@ -44,11 +50,11 @@ public class ClientService {
 		} else {
 			System.out.println(opt);
 		}
-		Client p = opt.isPresent() ? opt.get() : new Client();
+		Client p = opt.isPresent() ? opt.get() : new Client(Civilite.Monsieur, "Rere"," Remi", "remi@yahoo.fr", null, null, null);
 
-		clientRepo.findAll(Sort.by("prenom").descending()).stream().forEach(client -> {
+		/*clientRepo.findAll(Sort.by("prenom").descending()).stream().forEach(client -> {
 			System.out.println(client.getPrenom() + " " + client.getNom());
 		});
 	}*/
 
-}
+}}

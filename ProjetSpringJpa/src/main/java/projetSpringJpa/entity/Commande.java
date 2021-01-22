@@ -45,12 +45,12 @@ public class Commande implements Serializable {
 		
 	}
 
-	public Commande(Integer nbProduits, Double prixTotal, Adresse adresseLivraison, Adresse adresseFacturation,
+	public Commande(Integer nbProduits, String prenom, String nom, String nom2,
 			LocalDate date, List<LigneCommande> ligneCommandes, Client client) {
 		this.nbProduits = nbProduits;
-		this.prixTotal = prixTotal;
-		this.adresseLivraison = adresseLivraison;
-		this.adresseFacturation = adresseFacturation;
+		this.prixTotal = prenom;
+		this.adresseLivraison = nom;
+		this.adresseFacturation = nom2;
 		this.date = date;
 		this.ligneCommandes = ligneCommandes;
 		this.client = client;
