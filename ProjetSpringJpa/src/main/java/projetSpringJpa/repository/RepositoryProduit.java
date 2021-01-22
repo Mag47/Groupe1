@@ -11,7 +11,7 @@ import projetSpringJpa.entity.Categorie;
 import projetSpringJpa.entity.Client;
 import projetSpringJpa.entity.Produit;
 
-public interface RepositoryProduit extends JpaRepository<Produit, Integer>{
+public interface RepositoryProduit extends JpaRepository<Produit, Long>{
 	
 /*	public List<Adresse> findByPrenomContaining(String prenom);
 

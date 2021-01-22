@@ -10,7 +10,7 @@ import projetSpringJpa.entity.Adresse;
 import projetSpringJpa.entity.Client;
 import projetSpringJpa.entity.Commande;
 
-public interface RepositoryCommande extends JpaRepository<Commande, Integer>{
+public interface RepositoryCommande extends JpaRepository<Commande, Long>{
 	
 /*	public List<Adresse> findByPrenomContaining(String prenom);
 

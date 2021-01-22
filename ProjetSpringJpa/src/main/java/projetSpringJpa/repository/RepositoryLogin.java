@@ -10,7 +10,7 @@ import projetSpringJpa.entity.Adresse;
 import projetSpringJpa.entity.Client;
 import projetSpringJpa.entity.Login;
 
-public interface RepositoryLogin extends JpaRepository<Login, Integer>{
+public interface RepositoryLogin extends JpaRepository<Login, Long>{
 	
 /*	public List<Adresse> findByPrenomContaining(String prenom);
 

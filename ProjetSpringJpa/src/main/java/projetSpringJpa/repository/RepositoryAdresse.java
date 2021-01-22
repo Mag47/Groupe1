@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import projetSpringJpa.entity.Adresse;
 import projetSpringJpa.entity.Client;
 
-public interface RepositoryAdresse extends JpaRepository<Adresse, Integer>{
+public interface RepositoryAdresse extends JpaRepository<Adresse, Long>{
 	
 /*	public List<Adresse> findByPrenomContaining(String prenom);
 

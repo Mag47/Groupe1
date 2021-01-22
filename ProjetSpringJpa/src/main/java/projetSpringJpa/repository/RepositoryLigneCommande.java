@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import projetSpringJpa.entity.Client;
 import projetSpringJpa.entity.LigneCommande;
 
-public interface RepositoryLigneCommande extends JpaRepository<LigneCommande, Integer>{
+public interface RepositoryLigneCommande extends JpaRepository<LigneCommande, Long>{
 	
 	/*public List<Client> findByPrenomContaining(String prenom);
 
