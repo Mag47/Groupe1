@@ -6,15 +6,16 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-
+import projetSpringJpa.entity.Adresse;
 import projetSpringJpa.entity.Client;
+import projetSpringJpa.entity.Login;
 
-public interface RepositoryClient extends JpaRepository<Client, Long>{
+public interface RepositoryLogin extends JpaRepository<Login, Integer>{
 	
-	public List<Client> findByPrenomContaining(String prenom);
+/*	public List<Adresse> findByPrenomContaining(String prenom);
 
 	@Query("select c from Client c where c.prenom=:param")
-	public List<Client> findAllOlivier(@Param("param") String param);
+	public List<Adresse> findAllOlivier(@Param("param") String param);*/
 }
 
 

@@ -10,6 +10,6 @@ public class AppSpring {
 	private ClientService clientService;
 
 	public void run(String[] args) {
-		clientService.demo();
+		clientService.creationClient("thierry","Dev");
 	}
 }

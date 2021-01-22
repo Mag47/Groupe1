@@ -5,10 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Version;
+import javax.persistence.Version;
 
 @Entity
 public class LigneCommande implements Serializable{
@@ -24,6 +23,9 @@ public class LigneCommande implements Serializable{
 	
 	@ManyToOne
 	private Commande commande;
+	
+	@Version
+	private int version;
 	
 	public Produit getProduit() {
 		return produit;
@@ -48,8 +50,7 @@ public class LigneCommande implements Serializable{
 		this.commande = commande;
 	}
 
-	@Version
-	private int version;
+	
 	
 	public LigneCommande() {
 		

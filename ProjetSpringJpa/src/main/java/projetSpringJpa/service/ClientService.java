@@ -33,9 +33,12 @@ public class ClientService {
 	}
 
 	public void demo() {
-		System.out.println(clientRepo.findAll());
+		
+		
+	}
+		/*System.out.println(clientRepo.findAll());
 
-		Optional<Client> opt = clientRepo.findById(10000);
+		Optional<Client> opt = clientRepo.findById(10000L);
 		if (opt.isPresent()) {
 			System.out.println(opt.get());
 		} else {
@@ -46,6 +49,6 @@ public class ClientService {
 		clientRepo.findAll(Sort.by("prenom").descending()).stream().forEach(client -> {
 			System.out.println(client.getPrenom() + " " + client.getNom());
 		});
-	}
+	}*/
 
 }

@@ -8,13 +8,14 @@ import org.springframework.data.repository.query.Param;
 
 
 import projetSpringJpa.entity.Client;
+import projetSpringJpa.entity.LigneCommande;
 
-public interface RepositoryClient extends JpaRepository<Client, Long>{
+public interface RepositoryLigneCommande extends JpaRepository<LigneCommande, Integer>{
 	
-	public List<Client> findByPrenomContaining(String prenom);
+	/*public List<Client> findByPrenomContaining(String prenom);
 
 	@Query("select c from Client c where c.prenom=:param")
-	public List<Client> findAllOlivier(@Param("param") String param);
+	public List<Client> findAllOlivier(@Param("param") String param);*/
 }
 
 

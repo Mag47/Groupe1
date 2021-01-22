@@ -27,9 +27,9 @@ public class AppConfig {
 	public BasicDataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/demo");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/eshop");
 		dataSource.setUsername("postgres");
-		dataSource.setPassword("postgres");
+		dataSource.setPassword("postgre");
 		dataSource.setMaxTotal(10);
 		dataSource.setInitialSize(5);
 		return dataSource;
@@ -39,7 +39,7 @@ public class AppConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource);
-		emf.setPackagesToScan("formationSpringJpa.entity");
+		emf.setPackagesToScan("projetSpringJpa.entity");
 		emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		emf.setJpaProperties(hibernateProperties());
 		return emf;
