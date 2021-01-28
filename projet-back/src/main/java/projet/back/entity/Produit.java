@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.PositiveOrZero;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "produit")
 @SequenceGenerator(name = "seqProduit", sequenceName = "seq_produit", initialValue = 100, allocationSize = 1)
@@ -27,7 +29,8 @@ public class Produit {
 	private Long id;
 	@Column(name = "produit_nom", length = 250, nullable = false)
 	private String nom;
-	//@Lob
+	@Lob
+	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "produit_description")
 	private String description;
 	@Column(name = "produit_prix")
