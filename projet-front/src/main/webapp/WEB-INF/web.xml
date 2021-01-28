@@ -16,7 +16,7 @@
 		</init-param>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>formationSpringMvc.config.WebConfig</param-value>
+			<param-value>projetfront.config.WebConfig</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

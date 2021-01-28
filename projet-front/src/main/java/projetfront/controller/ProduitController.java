@@ -3,7 +3,7 @@ package projetfront.controller;
 import java.util.Set;
 
 import javax.validation.Valid;
-import javax.xml.validation.Validator;
+import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +36,7 @@ public class ProduitController {
 	@GetMapping({"", "/"})
 	public ModelAndView list() {
 			
-		return new ModelAndView("Produit/list","produit",produitrepo.findAll());
+		return new ModelAndView("produit/list","produit",produitrepo.findAll());
 	}
 
 	@GetMapping("/delete")

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Produit</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -21,25 +21,31 @@
 		</div>
 		<table class="table">
 			<tr>
-				<th><spring:message code="personne.id"></spring:message></th>
-				<th><spring:message code="personne.prenom"></spring:message></th>
-				<th><spring:message code="personne.nom"></spring:message></th>
-				<th></th>
-				<th></th>
+				<th><spring:message code="produit.id"></spring:message></th>
+				<th><spring:message code="produit.nom"></spring:message></th>
+				<th><spring:message code="produit.prix"></spring:message></th>
+				<th><spring:message code="produit.stock"></spring:message></th>
+				<th><spring:message code="produit.description"></spring:message></th>
+				<th>Selection</th>
+				<th>Photo</th>
 			</tr>
-			<c:forEach items="${personnes}" var="p">
+			<c:forEach items="${Produits}" var="p">
 				<tr>
 					<td>${p.id}</td>
-					<td>${p.prenom}</td>
 					<td>${p.nom}</td>
-					<td><a href="./personne/edit?id=${p.id}"
+					<td>${p.prix}</td>
+					<td>${p.stock}</td>
+					<td>${p.description}</td>
+					<td>Selection</td>
+					<td>Photo</td>
+					<td><a href="./Produit/edit?id=${p.id}"
 						class="btn btn-outline-primary"><spring:message code="edit"></spring:message></a></td>
-					<td><a href="./personne/delete?id=${p.id}"
+					<td><a href="./Produit/delete?id=${p.id}"
 						class="btn btn-outline-danger"><spring:message code="delete"></spring:message></a></td>
 				</tr>
 			</c:forEach>
 		</table>
-		<a href="./personne/add" class="btn btn-link"><spring:message
+		<a href="./Produit/add" class="btn btn-link"><spring:message
 				code="add"></spring:message></a>
 	</div>
 </body>

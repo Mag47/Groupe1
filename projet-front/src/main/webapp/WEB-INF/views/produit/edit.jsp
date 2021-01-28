@@ -14,30 +14,41 @@
 </head>
 <body>
 	<div class="container">
-		<h1>edition avec spring</h1>
-		<form:form method="post" action="save" modelAttribute="personne">
+		<h1>edition produit</h1>
+		<form:form method="post" action="save" modelAttribute="produit">
 			<form:hidden path="version" />
 			<div class="form-group">
 				<form:label path="id">id:</form:label>
 				<form:input path="id" cssClass="form-control" readonly="true" />
 			</div>
 			<div class="form-group">
-				<form:label path="prenom">prenom:</form:label>
-				<form:input path="prenom" cssClass="form-control" />
-				<form:errors path="prenom" element="div"
+				<form:label path="nom">nom:</form:label>
+				<form:input path="nom" cssClass="form-control" />
+				<form:errors path="nom" element="div"
 					cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
-				<form:label path="nom">nom:</form:label>
-				<form:input path="nom" cssClass="form-control" />
-				<form:errors path="nom">
-					<div class="alert alert-danger">message dans vue</div>
+				<form:label path="prix">prix:</form:label>
+				<form:input type="number" path="prix" cssClass="form-control" />
+				<form:errors path="prix" element="div" cssclass="alert alert-danger">
 				</form:errors>
+			</div>
+			<div class="form-group">
+				<form:label path="stock">Stock:</form:label>
+				<form:input type="number" path="stock" cssClass="form-control" />
+				<form:errors path="stock" element="div" cssclass="alert alert-danger">
+				</form:errors>
+			</div>
+			<div class="form-group">
+				<form:label path="description">description:</form:label>
+				<form:input path="description" cssClass="form-control" />
+				<form:errors path="description" element="div"
+					cssClass="alert alert-danger"></form:errors>
 			</div>
 
 			<div class="form-group">
 				<button type="submit" class="btn btn-outline-success">enregistrer</button>
-				<a href="../personne" class="btn btn-outline-warning">annuler</a>
+				<a href="../produit" class="btn btn-outline-warning">annuler</a>
 			</div>
 		</form:form>
 	</div>
