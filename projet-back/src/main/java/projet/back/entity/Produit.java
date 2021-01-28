@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.PositiveOrZero;
 
 @Entity
 @Table(name = "produit")
@@ -26,12 +27,13 @@ public class Produit {
 	private Long id;
 	@Column(name = "produit_nom", length = 250, nullable = false)
 	private String nom;
-	@Lob
+	//@Lob
 	@Column(name = "produit_description")
 	private String description;
 	@Column(name = "produit_prix")
 	private Double prix;
 	@Column(name = "produit_stock")
+	@PositiveOrZero
 	private Integer stock;
 	@Version
 	private int version;

@@ -29,7 +29,7 @@
 				<th>Selection</th>
 				<th>Photo</th>
 			</tr>
-			<c:forEach items="${Produits}" var="p">
+			<c:forEach items="${produits}" var="p">
 				<tr>
 					<td>${p.id}</td>
 					<td>${p.nom}</td>
@@ -38,14 +38,14 @@
 					<td>${p.description}</td>
 					<td>Selection</td>
 					<td>Photo</td>
-					<td><a href="./Produit/edit?id=${p.id}"
+					<td><a href="./produit/edit?id=${p.id}"
 						class="btn btn-outline-primary"><spring:message code="edit"></spring:message></a></td>
-					<td><a href="./Produit/delete?id=${p.id}"
+					<td><a href="./produit/delete?id=${p.id}"
 						class="btn btn-outline-danger"><spring:message code="delete"></spring:message></a></td>
 				</tr>
 			</c:forEach>
 		</table>
-		<a href="./Produit/add" class="btn btn-link"><spring:message
+		<a href="./produit/add" class="btn btn-link"><spring:message
 				code="add"></spring:message></a>
 	</div>
 </body>

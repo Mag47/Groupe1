@@ -17,7 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import projet.back.entity.Produit;
 import projet.back.exception.ProduitException;
+import projet.back.repository.CategorieRepository;
 import projet.back.repository.ProduitRepository;
+import projet.back.service.CategorieService;
 import projet.back.service.ProduitService;
 
 
@@ -30,13 +32,21 @@ public class ProduitController {
 	private ProduitRepository produitrepo;
 	@Autowired
 	private ProduitService produitService;
+	
+	@Autowired
+	private CategorieService categorieService;
+	
+	@Autowired
+	private CategorieRepository categorierepo;
+	
+	
 	@Autowired
 	private Validator validator;
 
 	@GetMapping({"", "/"})
 	public ModelAndView list() {
 			
-		return new ModelAndView("produit/list","produit",produitrepo.findAll());
+		return new ModelAndView("produit/list","produits",produitrepo.findAll());
 	}
 
 	@GetMapping("/delete")
@@ -55,20 +65,25 @@ public class ProduitController {
 	}
 
 	private ModelAndView goEdit(Produit produit) {
-		ModelAndView modelAndView = new ModelAndView("produit/edit", "produit", produit);
+		ModelAndView modelAndView = new ModelAndView("produit/edit");
+		modelAndView.addObject("produit",produit);
+		modelAndView.addObject("categorie",categorierepo.findAll());
 		return modelAndView;
 	}
 
 
 	@PostMapping("/save")
-	public ModelAndView add(@Valid @ModelAttribute("Produit") Produit Produit, BindingResult br) {
+	public ModelAndView add(@Valid @ModelAttribute("Produit") Produit produit, BindingResult br) {
 		if (br.hasErrors()) {
-			return goEdit(Produit);
+			return goEdit(produit);
 		}
-		if (Produit.getId() == null) {
-			produitService.creation(Produit);
+		if(produit.getCategorie().getId()==null) {
+			produit.setCategorie(null);
+		}
+		if (produit.getId() == null) {
+			produitService.creation(produit);
 		} else {
-			produitService.modification(Produit);
+			produitService.modification(produit);
 		}
 		return new ModelAndView("redirect:/produit");
 	}

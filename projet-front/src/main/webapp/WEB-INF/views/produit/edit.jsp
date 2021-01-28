@@ -24,19 +24,19 @@
 			<div class="form-group">
 				<form:label path="nom">nom:</form:label>
 				<form:input path="nom" cssClass="form-control" />
-				<form:errors path="nom" element="div"
-					cssClass="alert alert-danger"></form:errors>
+				<form:errors path="nom" element="div" cssClass="alert alert-danger"></form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="prix">prix:</form:label>
-				<form:input type="number" path="prix" cssClass="form-control" />
+				<form:input type="number" step="0.01" path="prix" cssClass="form-control" />
 				<form:errors path="prix" element="div" cssclass="alert alert-danger">
 				</form:errors>
 			</div>
 			<div class="form-group">
 				<form:label path="stock">Stock:</form:label>
 				<form:input type="number" path="stock" cssClass="form-control" />
-				<form:errors path="stock" element="div" cssclass="alert alert-danger">
+				<form:errors path="stock" element="div"
+					cssclass="alert alert-danger">
 				</form:errors>
 			</div>
 			<div class="form-group">
@@ -45,6 +45,15 @@
 				<form:errors path="description" element="div"
 					cssClass="alert alert-danger"></form:errors>
 			</div>
+			<div class="form-group">
+				<form:label path="categorie">categorie:</form:label>
+				<form:select path="categorie.id" cssClass="form-control">
+					<form:option value="">pas de categorie</form:option>
+					<form:options items="${categorie}" itemValue="numero"
+						itemLabel="nom" />
+				</form:select>
+			</div>
+
 
 			<div class="form-group">
 				<button type="submit" class="btn btn-outline-success">enregistrer</button>
