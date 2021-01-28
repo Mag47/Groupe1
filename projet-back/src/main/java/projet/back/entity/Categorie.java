@@ -25,7 +25,7 @@ public class Categorie {
 	private Long id;
 	@Column(name = "categorie_nom", length = 250, nullable = false)
 	private String nom;
-	@Lob
+	//@Lob
 	@Column(name = "categorie_description")
 	private String description;
 	@Version

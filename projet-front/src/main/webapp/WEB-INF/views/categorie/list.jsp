@@ -14,14 +14,14 @@
 </head>
 <body>
 	<div class="container">
-		
+
 		<table class="table">
 			<tr>
 				<th>id</th>
 				<th>nom</th>
 				<th>description</th>
-				<th></th>
-				<th></th>
+				<th>editer</th>
+				<th>supprimer</th>
 			</tr>
 			<c:forEach items="${categories}" var="c">
 				<tr>
@@ -35,8 +35,8 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<a href="./categorie/add" class="btn btn-link">
-				add</a>
+		<a href="./categorie/add" class="btn btn-link"> add</a> 
+		
 	</div>
 </body>
 </html>
