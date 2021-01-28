@@ -29,7 +29,7 @@ public class ProduitController {
 	@Autowired
 	private ProduitRepository produitrepo;
 	@Autowired
-	private ProduitService produitServicde;
+	private ProduitService produitService;
 	@Autowired
 	private Validator validator;
 
@@ -41,12 +41,12 @@ public class ProduitController {
 
 	@GetMapping("/delete")
 	public ModelAndView delete(@RequestParam Long id) {
-		produitrepo.deleteById(id);
+		produitService.suppression(id);
 		return new ModelAndView("redirect:/produit");
 	}
 	@GetMapping("/edit")
 	public ModelAndView edit(@RequestParam(name = "id") long id) throws ProduitException {
-		return goEdit(produitServicde.consultation(id));
+		return goEdit(produitService.consultation(id));
 	}
 
 	@GetMapping("/add")
@@ -66,9 +66,9 @@ public class ProduitController {
 			return goEdit(Produit);
 		}
 		if (Produit.getId() == null) {
-			produitServicde.creation(Produit);
+			produitService.creation(Produit);
 		} else {
-			produitServicde.modification(Produit);
+			produitService.modification(Produit);
 		}
 		return new ModelAndView("redirect:/produit");
 	}

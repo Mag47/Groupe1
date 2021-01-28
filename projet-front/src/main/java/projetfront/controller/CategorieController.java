@@ -1,13 +1,13 @@
-package formationSpringMvc.controller;
+package projetfront.controller;
 
 import java.util.Set;
 
-import javax.validation.ConstraintViolation;
+
 import javax.validation.Valid;
+import javax.xml.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import projet.back.entity.Categorie;
+import projet.back.exception.CategorieException;
 import projet.back.repository.CategorieRepository;
 import projet.back.service.CategorieService;
 
@@ -45,7 +46,7 @@ public class CategorieController {
 	}
 
 	@GetMapping("/delete")
-	public ModelAndView delete(@RequestParam Long id) {
+	public ModelAndView delete(@RequestParam Long id) throws CategorieException {
 		categorieService.suppressionCategorie(id);
 		return new ModelAndView("redirect:/categorie");
 	}
@@ -64,7 +65,7 @@ public class CategorieController {
 	}
 
 	@GetMapping("/edit")
-	public ModelAndView edit(@RequestParam Long id) {
+	public ModelAndView edit(@RequestParam Long id) throws CategorieException {
 		return goEdit(categorieService.consultation(id));
 	}
 
