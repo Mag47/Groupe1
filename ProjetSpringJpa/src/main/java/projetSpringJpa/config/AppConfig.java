@@ -29,7 +29,7 @@ public class AppConfig {
 		dataSource.setDriverClassName("org.postgresql.Driver");
 		dataSource.setUrl("jdbc:postgresql://localhost:5432/eshop");
 		dataSource.setUsername("postgres");
-		dataSource.setPassword("postgre");
+		dataSource.setPassword("postgres");
 		dataSource.setMaxTotal(10);
 		dataSource.setInitialSize(5);
 		return dataSource;

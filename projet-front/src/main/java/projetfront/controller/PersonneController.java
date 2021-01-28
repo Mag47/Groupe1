@@ -1,4 +1,4 @@
-package formationSpringMvc.controller;
+package projetfront.controller;
 
 import java.util.Set;
 

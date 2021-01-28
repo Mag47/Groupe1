@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,13 +25,17 @@ public class Commande implements Serializable {
 	private Long id;
 	private Integer nbProduits;
 	private Double prixTotal;
+	
+	@ManyToOne
 	private Adresse adresseLivraison;
+	
+	@ManyToOne
 	private Adresse adresseFacturation;
 	
 	@Column(columnDefinition = "DATE")
 	private LocalDate date;
 	
-	@OneToMany(mappedBy = "commande")
+	@OneToMany(mappedBy = "commande",fetch=FetchType.LAZY)
 	private List<LigneCommande> ligneCommandes;
 	
 	@ManyToOne
@@ -49,6 +54,7 @@ public class Commande implements Serializable {
 
 	public Commande(Integer nbProduits, Double prixTotal, Adresse adresseLivraison, Adresse adresseFacturation,
 			LocalDate date, List<LigneCommande> ligneCommandes, Client client) {
+		super();
 		this.nbProduits = nbProduits;
 		this.prixTotal = prixTotal;
 		this.adresseLivraison = adresseLivraison;

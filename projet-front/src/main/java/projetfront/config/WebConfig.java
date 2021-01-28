@@ -1,4 +1,4 @@
-package formationSpringMvc.config;
+package projetfront.config;
 
 import java.util.Locale;
 
@@ -21,8 +21,10 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import formationSpringJpa.config.AppConfig;
 
+
+
 @Configuration
-@ComponentScan({ "formationSpringMvc.controller" })
+@ComponentScan({ "projetfront.controller" })
 @EnableWebMvc
 @Import(AppConfig.class)
 public class WebConfig implements WebMvcConfigurer {
