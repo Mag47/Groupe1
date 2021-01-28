@@ -14,33 +14,29 @@
 </head>
 <body>
 	<div class="container">
-		<div>
-			<a href="?lang=fr" class="btn btn-link"><spring:message
-					code="francais"></spring:message></a> <a href="?lang=en"
-				class="btn btn-link"><spring:message code="anglais"></spring:message></a>
-		</div>
+		
 		<table class="table">
 			<tr>
-				<th><spring:message code="personne.id"></spring:message></th>
-				<th><spring:message code="personne.prenom"></spring:message></th>
-				<th><spring:message code="personne.nom"></spring:message></th>
+				<th>id</th>
+				<th>nom</th>
+				<th>description</th>
 				<th></th>
 				<th></th>
 			</tr>
-			<c:forEach items="${personnes}" var="p">
+			<c:forEach items="${categories}" var="c">
 				<tr>
-					<td>${p.id}</td>
-					<td>${p.prenom}</td>
-					<td>${p.nom}</td>
-					<td><a href="./personne/edit?id=${p.id}"
-						class="btn btn-outline-primary"><spring:message code="edit"></spring:message></a></td>
-					<td><a href="./personne/delete?id=${p.id}"
-						class="btn btn-outline-danger"><spring:message code="delete"></spring:message></a></td>
+					<td>${c.id}</td>
+					<td>${c.nom}</td>
+					<td>${c.description}</td>
+					<td><a href="./categorie/edit?id=${c.id}"
+						class="btn btn-outline-primary">edit</a></td>
+					<td><a href="./categorie/delete?id=${c.id}"
+						class="btn btn-outline-danger">delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>
-		<a href="./personne/add" class="btn btn-link"><spring:message
-				code="add"></spring:message></a>
+		<a href="./categorie/add" class="btn btn-link">
+				add</a>
 	</div>
 </body>
 </html>
